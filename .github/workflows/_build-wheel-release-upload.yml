@@ -48,7 +48,7 @@ jobs:
       python_versions_json: ${{ needs.get-python-version.outputs.python_versions_json }}
 
   release-pypi:
-    needs: [release-github, get-python-version]
+    needs: [get-python-version]
     uses: ./.github/workflows/_release-pypi.yml
     with:
       # Convert from number to string
@@ -57,7 +57,7 @@ jobs:
       PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
 
   docs-release:
-    needs: [release-github, get-python-version]
+    needs: [get-python-version]
     uses: ./.github/workflows/_release-docs.yml
     with:
       project: ${{ inputs.project }}
