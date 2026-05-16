@@ -51,6 +51,7 @@ jobs:
       - name: Build sdist
         run: |
           conda install --file requirements/conda.txt
+          conda install pip
           pip install --upgrade build
           python -m build --sdist
 
@@ -216,6 +217,7 @@ jobs:
         run: |
           conda install --file requirements/conda.txt
           conda install --file requirements/tests.txt
+          conda install pip
 
       - name: Install wheel and test
         run: |
